@@ -98,7 +98,7 @@ class Chatbox {
   }
         
         console.log(text1);
-        fetch('http://localhost:7070/sakha/v2/chat/message', {
+        fetch('http://64.227.141.229:7070/sakha/v2/chat/message', {
             method: 'POST',
             body: JSON.stringify({
                 "authToken": getCookie("authToken"),
@@ -275,7 +275,7 @@ function getUserIdFromCookie() {
 
 // Construct the logout URL using the user ID
 function constructLogoutUrl(userId) {
-    return "http://localhost:7070/sakha/v2/user/" + userId;
+    return "http://64.227.141.229:7070/sakha/v2/user/" + userId;
 }
 
 // Get the logout button element
