@@ -37,7 +37,7 @@ form.onsubmit = function(event){
                 var jsonResponse = JSON.parse(data);
                 document.cookie =  "authToken=" + jsonResponse["authToken"];
                 document.cookie =  "userId=" + jsonResponse["userId"];
-                window.location = "/static/dashboard.html";
+                window.location = "/dashboard.html";
 
               }
 
