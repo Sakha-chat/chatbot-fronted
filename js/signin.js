@@ -17,7 +17,7 @@ form.onsubmit = function(event){
         var xhr = new XMLHttpRequest();
         var formData = new FormData(form);
         //open the request
-        xhr.open('POST','http://64.227.141.229:7070/sakha/v2/user/signin?')
+        xhr.open('POST','http://ai.sakha.chat/sakha/v2/user/signin?')
         xhr.setRequestHeader("Content-Type", "application/json");
 
         //send the form data
