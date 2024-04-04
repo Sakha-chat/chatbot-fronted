@@ -69,7 +69,7 @@ form.onsubmit = function(event){
     
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == XMLHttpRequest.DONE) {
-                    alert("User Id Created, Please Signin to Access")
+                    alert("User Id Created, Please Signin to Access");
                 }
             }
             //Fail the onsubmit to avoid page refresh.
