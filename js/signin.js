@@ -31,7 +31,8 @@ form.onsubmit = function(event){
       
 
         xhr.onreadystatechange = function() {
-            if (xhr.readyState == XMLHttpRequest.DONE) {
+            if (xhr.readyState == XMLHttpRequest.DONE && xhr.status === 200) {
+                
                 form.reset(); //reset form after AJAX success or do something else
                 var data=xhr.responseText;
                 var jsonResponse = JSON.parse(data);
