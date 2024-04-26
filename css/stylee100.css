@@ -110,8 +110,6 @@ body {
   margin: .5em;
   margin-top: 0;
   transition: .5s ease-in-out;
-  border-radius: 100%;
-  border: 7px solid #ffffff;
   color: #ff912b;
 }
 .custom-icon.active {
