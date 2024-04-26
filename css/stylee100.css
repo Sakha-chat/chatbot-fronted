@@ -115,7 +115,8 @@ body {
 .custom-icon.active {
   transform: scale(1.25) translateY(-1em);
   background: linear-gradient(135deg, rgb(245, 197, 109),rgb(245, 197, 109));
-  border: 7px solid #dcdcdc;
+  border-radius: 20px;
+  border: 4px solid #717171;
   color: white;
 }
 .custom-bottom-bar {
