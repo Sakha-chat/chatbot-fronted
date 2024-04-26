@@ -1,84 +1,63 @@
-const signUpButton = document.getElementById("signUp");
-const signInButton = document.getElementById("signIn");
-const container = document.getElementById("container");
+const signInBtn = document.querySelector("#sign-in-btn");
+const signUpBtn = document.querySelector("#sign-up-btn");
+const container = document.querySelector(".container");
 
-signUpButton.addEventListener("click", () => {
-  container.classList.add("right-panel-active");
+signUpBtn.addEventListener("click", () => {
+  container.classList.add("sign-up-mode");
 });
 
-signInButton.addEventListener("click", () => {
-  container.classList.remove("right-panel-active");
+signInBtn.addEventListener("click", () => {
+  container.classList.remove("sign-up-mode");
 });
-// u1,e1,p1,p2
 
-var form = document.getElementById('sakhalogin');
+const loginForm = document.querySelector(".sign-in-form");
 
-form.onsubmit = function(event){
-        var xhr = new XMLHttpRequest();
-        var formData = new FormData(form);
-        //open the request
-        xhr.open('POST','https://ai.sakha.chat/sakha/v2/user/signin?')
-        xhr.setRequestHeader("Content-Type", "application/json");
+loginForm.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-        //send the form data
-        // xhr.send(JSON.stringify(Object.fromEntries(formData)));
-        var data={
-          "email":document.getElementById("sakhaemail").value,
-          "password":document.getElementById("sakhapass").value
-      }
-      
-      xhr.send(JSON.stringify(data))
-      
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://ai.sakha.chat/sakha/v2/user/signin?");
+  xhr.setRequestHeader("Content-Type", "application/json");
 
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == XMLHttpRequest.DONE && xhr.status === 200) {
-                
-                form.reset(); //reset form after AJAX success or do something else
-                var data=xhr.responseText;
-                var jsonResponse = JSON.parse(data);
-                document.cookie =  "authToken=" + jsonResponse["authToken"];
-                document.cookie =  "userId=" + jsonResponse["userId"];
-                window.location = "/dashboard.html";
+  const data = {
+    email: document.querySelector(".sign-in-form input[type='text']").value,
+    password: document.querySelector(".sign-in-form input[type='password']").value
+  };
 
-              }
+  xhr.send(JSON.stringify(data));
 
-        }
-        //Fail the onsubmit to avoid page refresh.
-        return false; 
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      loginForm.reset();
+      const jsonResponse = JSON.parse(xhr.responseText);
+      document.cookie = "authToken=" + jsonResponse.authToken;
+      document.cookie = "userId=" + jsonResponse.userId;
+      window.location = "/dashboard.html";
     }
+  };
+});
 
-    var form = document.getElementById('sakhasignup');
+const signupForm = document.querySelector(".sign-up-form");
 
-    form.onsubmit = function(event){
-            var xhr = new XMLHttpRequest();
-            var formData = new FormData(form);
-            //open the request
-            xhr.open('POST','https://ai.sakha.chat/sakha/v2/user/signup')
-            xhr.setRequestHeader("Content-Type", "application/json");
-    
-            //send the form data
-            // xhr.send(JSON.stringify(Object.fromEntries(formData)));
-            var data={
-              "username":document.getElementById("u1").value,
-              "password":document.getElementById("p1").value,
-              "email":document.getElementById("e1").value,
-              "phoneNumber":document.getElementById("p2").value
-          }
-          
-          xhr.send(JSON.stringify(data))
-            
-    
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == XMLHttpRequest.DONE) {
-                    alert("User Id Created, Please Signin to Access");
-                }
-            }
-            //Fail the onsubmit to avoid page refresh.
-            return false; 
-        }
+signupForm.addEventListener("submit", (event) => {
+  event.preventDefault();
 
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://ai.sakha.chat/sakha/v2/user/signup");
+  xhr.setRequestHeader("Content-Type", "application/json");
 
+  const data = {
+    username: document.querySelector(".sign-up-form input[type='text']").value,
+    password: document.querySelector(".sign-up-form input[type='password']").value,
+    email: document.querySelector(".sign-up-form input[type='email']").value,
+    phoneNumber: document.querySelector(".sign-up-form input[type='phonenumber']").value
+  };
 
+  xhr.send(JSON.stringify(data));
 
-
-
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      alert("User Id Created, Please Sign in to Access");
+    }
+  };
+});
