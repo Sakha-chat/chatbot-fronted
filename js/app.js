@@ -276,7 +276,7 @@ function getUserIdFromCookie() {
 // Construct the logout URL using the user ID
 function constructLogoutUrl(userId) {
 	document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-    return "https://signin.sakha.chat";
+    return "https://home.sakha.chat";
 }
 
 // Get the logout button element
