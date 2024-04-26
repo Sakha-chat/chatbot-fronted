@@ -78,3 +78,120 @@ body {
   min-width: initial;
   padding: 0.5rem;
 }
+
+/* mobile-header */
+.ldm-container {
+  display: none;
+  background-color: rgb(26, 26, 26);
+}
+
+.ldm-image {
+  width: 200px; /* Adjust image size as needed */
+  height: auto;
+ margin-left: 36%;
+}
+
+/* bottom Navbar */
+.custom-bottom-bar {
+  /* background-color: #303030;  */
+  /* margin-left: auto;
+  margin-right: auto; */
+  text-align: center;
+  /* margin-top: 20em; */
+  height: 50px;
+  max-width: 48em;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+.custom-icon {
+  font-size: 1.5em;
+  padding: .1em;
+  margin: .5em;
+  margin-top: 0;
+  transition: .5s ease-in-out;
+  border-radius: 100%;
+  border: 7px solid #ffffff;
+  color: #ff912b;
+}
+.custom-icon.active {
+  transform: scale(1.25) translateY(-1em);
+  background: linear-gradient(135deg, rgb(245, 197, 109),rgb(245, 197, 109));
+  border: 7px solid #dcdcdc;
+  color: white;
+}
+.custom-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  background-color: #505050;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+  padding: 10px 0; /* Adjust padding as needed */
+  z-index: 999; /* Ensure it's above other content */
+}
+
+
+
+
+
+
+/* all responsive code */
+/* Hide navbar on devices wider than a laptop */
+@media (min-width: 769px) {
+  .custom-bottom-bar {
+      display: none;
+  }
+}
+@media only screen and (max-width: 768px){
+  .site-header{
+    display: none;
+  }
+  .ldm-container{
+    display: flex;
+  }
+}
+@media only screen and (max-width: 425px){
+  .site-header{
+    display: none;
+  }
+  .ldm-container{
+    display: flex;
+  }
+  .ldm-image{
+    margin-left: 30%;
+  }
+  .custom-bottom-bar{
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 375px){
+  .site-header{
+    display: none;
+  }
+  .ldm-container{
+    display: flex;
+  }
+  .ldm-image{
+    margin-left: 30%;
+  }
+  .custom-bottom-bar{
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 320px){
+  .site-header{
+    display: none;
+  }
+  .ldm-container{
+    display: flex;
+  }
+  .ldm-image{
+    margin-left: 30%;
+  }
+  .custom-bottom-bar{
+    width: 100%;
+  } 
+}
+
