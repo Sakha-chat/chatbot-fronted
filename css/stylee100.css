@@ -82,22 +82,18 @@ body {
 /* mobile-header */
 .ldm-container {
   display: none;
+  padding-top: 10px;
   background-color: rgb(26, 26, 26);
 }
 
 .ldm-image {
-  width: 200px; /* Adjust image size as needed */
+  width: 200px; 
   height: auto;
- margin-left: 36%;
 }
 
 /* bottom Navbar */
 .custom-bottom-bar {
-  /* background-color: #303030;  */
-  /* margin-left: auto;
-  margin-right: auto; */
   text-align: center;
-  /* margin-top: 20em; */
   height: 50px;
   max-width: 48em;
   border-radius: 20px 20px 0 0;
@@ -124,7 +120,7 @@ body {
   bottom: 0;
   left: 0;
   width: 200%;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   text-align: center;
   border-radius: 20px 20px 0 0;
   padding: 10px 0; /* Adjust padding as needed */
@@ -145,6 +141,7 @@ body {
   }
   .ldm-container{
     display: flex;
+    justify-content: space-around;
   }
 }
 @media only screen and (max-width: 425px){
@@ -153,9 +150,7 @@ body {
   }
   .ldm-container{
     display: flex;
-  }
-  .ldm-image{
-    margin-left: 30%;
+    justify-content: space-around;
   }
   .custom-bottom-bar{
     width: 100%;
@@ -167,9 +162,7 @@ body {
   }
   .ldm-container{
     display: flex;
-  }
-  .ldm-image{
-    margin-left: 30%;
+    justify-content: space-around;
   }
   .custom-bottom-bar{
     width: 100%;
@@ -181,12 +174,9 @@ body {
   }
   .ldm-container{
     display: flex;
-  }
-  .ldm-image{
-    margin-left: 30%;
+    justify-content: space-around;
   }
   .custom-bottom-bar{
     width: 100%;
   } 
 }
-
