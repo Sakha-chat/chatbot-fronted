@@ -33,8 +33,6 @@ loginForm.addEventListener("submit", (event) => {
       document.cookie = "authToken=" + jsonResponse.authToken;
       document.cookie = "userId=" + jsonResponse.userId;
       window.location = "/dashboard.html";
-    }else{
-      alert("Email/Password is not correct, try again!!");
     }
   };
 });
