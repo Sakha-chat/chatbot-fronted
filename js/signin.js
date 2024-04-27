@@ -58,8 +58,6 @@ signupForm.addEventListener("submit", (event) => {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       alert("User Id Created, Please Sign in to Access");
-    }else{
-      alert("user not crested, please try again!");
     }
   };
 });
