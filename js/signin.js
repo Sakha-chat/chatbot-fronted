@@ -27,12 +27,17 @@ loginForm.addEventListener("submit", (event) => {
   xhr.send(JSON.stringify(data));
 
   xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-      loginForm.reset();
-      const jsonResponse = JSON.parse(xhr.responseText);
-      document.cookie = "authToken=" + jsonResponse.authToken;
-      document.cookie = "userId=" + jsonResponse.userId;
-      window.location = "/dashboard.html";
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        loginForm.reset();
+        const jsonResponse = JSON.parse(xhr.responseText);
+        document.cookie = "authToken=" + jsonResponse.authToken;
+        document.cookie = "userId=" + jsonResponse.userId;
+        window.location = "/dashboard.html";
+      } else {
+        // Handle wrong credentials
+        alert("Wrong credentials. Please try again.");
+      }
     }
   };
 });
@@ -52,12 +57,19 @@ signupForm.addEventListener("submit", (event) => {
     email: document.querySelector(".sign-up-form input[type='email']").value,
     phoneNumber: document.querySelector(".sign-up-form input[type='phonenumber']").value
   };
-
+  console.log(data);
   xhr.send(JSON.stringify(data));
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE) {
-      alert("User Id Created, Please Sign in to Access");
+      if (xhr.status === 200) {
+        alert("User Id Created, Please Sign in to Access");
+      } else if (xhr.status === 409) {
+        // Handle email already in use
+        alert("Email already in use. Please use a different email.");
+      } else {
+        alert("An error occurred. Please try again later.");
+      }
     }
   };
 });
