@@ -33,6 +33,8 @@ loginForm.addEventListener("submit", (event) => {
       document.cookie = "authToken=" + jsonResponse.authToken;
       document.cookie = "userId=" + jsonResponse.userId;
       window.location = "/dashboard.html";
+    }else{
+      alert("Email/Password is not correct, try again!!");
     }
   };
 });
@@ -58,8 +60,6 @@ signupForm.addEventListener("submit", (event) => {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       alert("User Id Created, Please Sign in to Access");
-    }else{
-      alert("Email/Password is not correct, try again!!");
     }
   };
 });
